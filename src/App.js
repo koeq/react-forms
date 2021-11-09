@@ -5,6 +5,7 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [textarea, setTextarea] = useState("");
+  const [select, setSelect] = useState("");
 
   const handleEmail = e => {
     console.log(e.target);
@@ -16,6 +17,9 @@ function App() {
   const handleTextarea = e => {
     setTextarea(e.target.value);
   };
+  const handleSelect = e => {
+    setSelect(e.target.value);
+  };
 
   return (
     <div className="App">
@@ -23,7 +27,6 @@ function App() {
         <form>
           <input
             type="email"
-            name="email"
             value={email}
             placeholder="email"
             onChange={handleEmail}
@@ -31,7 +34,6 @@ function App() {
           />
           <input
             type="password"
-            name="password"
             value={password}
             placeholder="password"
             onChange={handlePassword}
@@ -42,13 +44,18 @@ function App() {
       </div>
       <div style={{ marginTop: "3vh" }} className="tex-area">
         <textarea
-          name="text-area"
           value={textarea}
           placeholder="Enter text here..."
           onChange={handleTextarea}
         ></textarea>
       </div>
-      <div style={{ marginTop: "3vh" }} className="select"></div>
+      <div style={{ marginTop: "3vh" }} className="select">
+        <select value={select} onChange={handleSelect}>
+          <option value="banana">banana</option>
+          <option value="watermelon">watermelon</option>
+          <option value="peanuts">peanuts</option>
+        </select>
+      </div>
     </div>
   );
 }
